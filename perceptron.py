@@ -2,7 +2,7 @@ from toolkitPython.supervised_learner import SupervisedLearner
 from toolkitPython.matrix import Matrix
 
 THRESHOLD = 0
-
+LEARNING_RATE = .2
 
 class PerceptronLearner(SupervisedLearner):
 
