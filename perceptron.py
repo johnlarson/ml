@@ -1,20 +1,19 @@
 from toolkitPython.supervised_learner import SupervisedLearner
 from toolkitPython.matrix import Matrix
 
+THRESHOLD = 0
+
 
 class PerceptronLearner(SupervisedLearner):
 
     def __init__(self):
-        # things I change
         self.weights = Matrix()
-        self.threshold = 0
 
     def train(self, features, labels):
         """
         :type features: Matrix
         :type labels: Matrix
         """
-        self.labels = []
         self._init_weights(features, labels)
         for i in range(labels.rows):
             f = features.row(i)
@@ -47,10 +46,10 @@ class PerceptronLearner(SupervisedLearner):
             amount = 0;
             for row in range(self.weights.rows):
                 amount += features[row] * self.weights.get(row, col)
-            labels.append(self.do_threshold(amount))
+            labels.append(self.threshold(amount))
 
-    def do_threshold(self, amount):
-        return 1 if amount > self.threshold else 0
+    def threshold(self, amount):
+        return 1 if amount > THRESHOLD else 0
 
 
 
