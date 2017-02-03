@@ -50,7 +50,7 @@ class PerceptronLearner(SupervisedLearner):
             labels.append(self.do_threshold(amount))
 
     def do_threshold(self, amount):
-        return 1
+        return 1 if amount > self.threshold else 0
 
 
 
